@@ -6,11 +6,33 @@
 	<link rel="stylesheet" href="styles.css">
 </head>
 
-<body>	
+<body>
+	
 	<script>
+		
 		function secondHighest(arr) {
-			//Write your code here
-			
+			if(arr.length <= 1) return -1/0;
+			for(let i=0; i<arr.length; i++){
+				if(arr[i]!=arr[i+1]){
+					break;
+				}
+				return -1/0;
+			}
+			let max = arr[0];
+			let second_max = arr[1];
+			for(let i = 2; i< arr.length; i++){
+				if (arr[i] > max){
+					if(arr[i] > max && max > second_max){
+						second_max = max;
+						max = arr[i];
+					}else{
+						max = arr[i];
+					}
+				}else if(arr[i]< max && arr[i] > second_max){
+					second_max = arr[i];
+				}
+			}
+			return second_max;
 		}
 
 		function Main() {
@@ -20,6 +42,7 @@
 				arr[i] = prompt("Enter element " + (i+1));
 			}
 			alert(secondHighest(arr));
+		
 		}
 		Main();
 	</script>
